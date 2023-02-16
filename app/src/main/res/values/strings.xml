@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">RickAndMorty</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="alive">Alive</string>
+    <string name="dead">Dead</string>
+    <string name="unknown">unknown</string>
+    <string name="hyphen">%1$s - %2$s</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="human">Human</string>
+    <string name="alien">Alien</string>
+</resources>
