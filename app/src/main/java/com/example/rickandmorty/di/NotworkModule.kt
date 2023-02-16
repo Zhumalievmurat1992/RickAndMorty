@@ -12,8 +12,6 @@ val networkModule = module {
     single { provideOkHttpClient() }
     single { providePostApi(get()) }
     single { provideRetrofit(get()) }
-
-
 }
 
 fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {

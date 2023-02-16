@@ -1,22 +1,26 @@
 package com.example.rickandmorty.presentation.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TableLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.rickandmorty.R
 import com.example.rickandmorty.adapter.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import org.koin.core.context.startKoin
+import com.example.rickandmorty.presentation.fragments.viewModel.CharacterViewModel
+import com.example.rickandmorty.presentation.fragments.CharacterFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.example.rickandmorty.databinding.ActivityMainBinding
+import androidx.appcompat.widget.SearchView
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initViewPager()
-
     }
     private fun initViewPager() {
         val tabLayout = findViewById<TabLayout>(R.id.tab_layout)

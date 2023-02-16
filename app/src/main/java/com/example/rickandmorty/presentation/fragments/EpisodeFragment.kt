@@ -1,8 +1,6 @@
 package com.example.rickandmorty.presentation.fragments
 
 import android.view.LayoutInflater
-import android.view.View
-import androidx.fragment.app.viewModels
 import com.example.core.base.BaseFragment
 import com.example.rickandmorty.databinding.FragmentEpisodeBinding
 import com.example.rickandmorty.presentation.fragments.adapter.EpisodePagAdapter

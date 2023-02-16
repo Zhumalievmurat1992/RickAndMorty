@@ -1,7 +1,11 @@
 package com.example.rickandmorty.data.model
 
+import com.google.gson.annotations.SerializedName
+
 data class LocationsDto(
+    @SerializedName("info")
     val info: LocInfo,
+    @SerializedName("results")
     val results: List<LocResult>
 )
 

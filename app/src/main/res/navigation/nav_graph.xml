@@ -26,6 +26,7 @@
         tools:layout="@layout/fragment_location" >
 
     </fragment>
+
     <fragment
         android:id="@+id/filterFragment"
         android:name="com.example.rickandmorty.presentation.fragments.FilterFragment"

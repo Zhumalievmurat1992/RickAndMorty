@@ -1,4 +1,4 @@
-package kg.o.internlabs.core.common
+package com.example.core.common
 
 sealed class ApiState<out T> {
     data class Success<out R>(val data: R) : ApiState<R>()

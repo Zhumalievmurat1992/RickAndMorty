@@ -6,7 +6,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.rickandmorty.presentation.fragments.CharacterFragment
 import com.example.rickandmorty.presentation.fragments.EpisodeFragment
-import com.example.rickandmorty.presentation.fragments.LocationFragment
+//import com.example.rickandmorty.presentation.fragments.LocationFragment
 import com.example.rickandmorty.presentation.fragments.FilterFragment
 
 class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
@@ -23,12 +23,11 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
             1 -> {
                 EpisodeFragment()
             }
-            2 -> {
-                LocationFragment()
-            }
+//            2 -> {
+//                LocationFragment()
+//            }
             else -> {
-                //Fragment()
-                FilterFragment()
+                Fragment()
             }
         }
     }
