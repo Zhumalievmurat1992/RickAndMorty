@@ -5,5 +5,5 @@ import com.example.rickandmorty.domain.entity.episode.ResultEntity
 import kotlinx.coroutines.flow.Flow
 
 interface EpisodeRepository {
-    suspend fun getEpisode(): Flow<PagingData<ResultEntity>>
+    suspend fun getEpisode(name: String?,episode: String?): Flow<PagingData<ResultEntity>>
 }

@@ -7,13 +7,13 @@ import com.example.rickandmorty.data.remote.ApiService
 import com.example.rickandmorty.domain.repository.EpisodeRepository
 
 class EpisodeRepositoryImpl(private val episodeService: ApiService): EpisodeRepository {
-    override suspend fun getEpisode() = Pager(
+    override suspend fun getEpisode(name: String?,episode:String?) = Pager(
         config = PagingConfig(
             pageSize = 10,
             prefetchDistance = 1,
             maxSize = 40,
             initialLoadSize = 20
-        ), pagingSourceFactory = { EpisodePagingSource(episodeService) }
+        ), pagingSourceFactory = { EpisodePagingSource(episodeService,name, episode) }
     ).flow
 
 

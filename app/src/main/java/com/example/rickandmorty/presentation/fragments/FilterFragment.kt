@@ -10,7 +10,6 @@ import com.example.rickandmorty.R
 
 class FilterFragment : Fragment() {
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -1,6 +1,7 @@
 package com.example.rickandmorty.presentation.fragments
 
 import android.view.LayoutInflater
+import androidx.appcompat.widget.SearchView
 import com.example.core.base.BaseFragment
 import com.example.rickandmorty.databinding.FragmentEpisodeBinding
 import com.example.rickandmorty.presentation.fragments.adapter.EpisodePagAdapter
@@ -25,7 +26,7 @@ class EpisodeFragment: BaseFragment<FragmentEpisodeBinding,EpisodeViewModel>() {
         super.initView()
         initAdapter()
         getEpisodes()
-       // searchView()
+        searchView()
     }
 
     override fun initViewModel() {
@@ -40,6 +41,35 @@ class EpisodeFragment: BaseFragment<FragmentEpisodeBinding,EpisodeViewModel>() {
         loadListener(progressCharactersLoader,recyclerEpisode)
     }
 
+    private fun searchView() = with(binding) {
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (searchView.query.trim().isNotEmpty() && query!!.length > 2) {
+                    getSearchName(query)
+                    searchView.clearFocus()
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (searchView.query.trim().isNotEmpty() && newText!!.length > 2) {
+                    getSearchName(newText)
+                }
+                if (searchView.query.trim().isEmpty()) {
+                    viewModel.getEpisodes(name = " ", episode = " ")
+
+                }
+                getEpisodes()
+                return true
+            }
+        })
+    }
+
+    private fun getSearchName(search: String?) {
+        viewModel.getEpisodes(search)
+        getEpisodes()
+    }
+
     private fun getEpisodes() {
         safeFlowGather {
             viewModel.episodes.collectLatest {
@@ -48,12 +78,4 @@ class EpisodeFragment: BaseFragment<FragmentEpisodeBinding,EpisodeViewModel>() {
 
         }
     }
-
-
-    private fun searchView() {
-        TODO("Not yet implemented")
-    }
-
-
-
 }

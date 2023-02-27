@@ -13,4 +13,6 @@ data class Result(
     val status: String? = null,
     val type: String? = null,
     val url: String? = null,
+    val dimension: String? = null,
+    val residents: List<String>? = null,
 )

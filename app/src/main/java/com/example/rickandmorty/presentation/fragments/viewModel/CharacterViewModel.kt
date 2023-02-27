@@ -1,6 +1,5 @@
 package com.example.rickandmorty.presentation.fragments.viewModel
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
@@ -12,12 +11,6 @@ import kotlinx.coroutines.flow.Flow
 class CharacterViewModel(
     private val characterUseCase: CharacterUseCase
 ) : BaseViewModel() {
-
-    private var isFilter = MutableLiveData<Boolean>()
-
-    init {
-        isFilter.value = false
-    }
 
     private lateinit var _characters: Flow<PagingData<Result>>
     val characters: Flow<PagingData<Result>>

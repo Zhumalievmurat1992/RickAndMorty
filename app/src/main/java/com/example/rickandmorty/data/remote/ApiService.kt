@@ -20,12 +20,16 @@ interface ApiService {
 
     @GET("episode")
     suspend fun getEpisode(
-        @Query("page") page: Int
+        @Query("page") page: Int,
+        @Query("name") name: String?,
+        @Query("episode") episode: String?
     ): Response<EpisodeDto?>
 
     @GET("location")
     suspend fun getLocation(
-        @Query("page") page: Int
+        @Query("page") page: Int,
+        @Query("name") name: String?,
+        @Query("dimension") dimension: String?
     ): Response<LocationsDto?>
 }
 

@@ -7,14 +7,18 @@ import com.example.rickandmorty.data.mappers.MapperForLocations
 import com.example.rickandmorty.data.remote.ApiService
 import com.example.rickandmorty.domain.entity.locations.LocResultEntity
 
-class LocationsPagingSource(private val apiService: ApiService): PagingSource<Int,LocResultEntity>() {
+class LocationsPagingSource(
+    private val apiService: ApiService,
+    private val name: String?,
+    private val dimension: String?,
+) : PagingSource<Int, LocResultEntity>() {
 
     private val map = MapperForLocations()
 
     override suspend fun load(params: LoadParams<Int>) = try {
         val position = params.key ?: 1
         val response = map.mapRespDbModelToRespEntity(
-            apiService.getLocation(position)
+            apiService.getLocation(position,name, dimension)
         )
         if (response.body() == null) throw Exception("null")
 

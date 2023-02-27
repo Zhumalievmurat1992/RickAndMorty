@@ -3,25 +3,24 @@ package com.example.rickandmorty.utils
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.annotation.IdRes
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.NavController
 import androidx.paging.LoadState
-import androidx.paging.PagingData
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.example.rickandmorty.domain.entity.character.Result
-import com.example.rickandmorty.domain.entity.episode.ResultEntity
 import com.example.rickandmorty.presentation.fragments.adapter.CharacterPagAdapter
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 
+fun NavController.navigateSafely(@IdRes actionId: Int) {
+    currentDestination?.getAction(actionId)?.let { navigate(actionId) }
+}
 fun ImageView.setImage(uri: String) {
     Glide.with(this)
         .load(uri)

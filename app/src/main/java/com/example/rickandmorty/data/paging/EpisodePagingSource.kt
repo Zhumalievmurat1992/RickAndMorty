@@ -6,14 +6,18 @@ import com.example.rickandmorty.data.mappers.MapperForEpisode
 import com.example.rickandmorty.data.remote.ApiService
 import com.example.rickandmorty.domain.entity.episode.ResultEntity
 
-class EpisodePagingSource(private val apiService: ApiService): PagingSource<Int, ResultEntity>() {
+class EpisodePagingSource(
+    private val apiService: ApiService,
+    private val name: String?,
+    private val episode: String?,
+) : PagingSource<Int, ResultEntity>() {
 
     private val map = MapperForEpisode()
 
     override suspend fun load(params: LoadParams<Int>) = try {
         val position = params.key ?: 1
         val response = map.mapRespDbModelToRespEntity(
-            apiService.getEpisode(position)
+            apiService.getEpisode(position,name, episode)
         )
         if (response.body() == null) throw Exception("null")
 

@@ -33,13 +33,6 @@ class CharacterFragment : BaseFragment<FragmentCharacterBinding, CharacterViewMo
         viewModel.getCharacters()
     }
 
-    override fun initListener() {
-        super.initListener()
-        binding.btnFilter.setOnClickListener {
-            // findNavController().navigate(R.id.action_characterFragment_to_filterFragment)
-        }
-    }
-
     private fun initAdapter() = with(binding) {
         recyclerCharacters.adapter = characterAdapter.withLoadStateFooter(
             footer = LoaderStateAdapter()
@@ -62,7 +55,7 @@ class CharacterFragment : BaseFragment<FragmentCharacterBinding, CharacterViewMo
                     getSearchName(newText)
                 }
                 if (searchView.query.trim().isEmpty()) {
-                   viewModel.getCharacters(name = " ")
+                    viewModel.getCharacters(name = " ", status = " ", species = " ", gender = " ")
 
                 }
                 getCharacters()
