@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">RickAndMorty</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="alive">Alive</string>
+    <string name="dead">Dead</string>
+    <string name="unknown">unknown</string>
+    <string name="hyphen">%1$s - %2$s</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="human">Human</string>
+    <string name="alien">Alien</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="todo">TODO</string>
+    <string name="not_found_character">not_found_character</string>
+    <string name="status">status</string>
+    <string name="gender">gender</string>
+    <string name="species">species</string>
+    <string name="enter">enter</string>
+    <string name="first_seen_in_colon">first_seen_in_COLON</string>
+    <string name="september_10_2017">September 10, 2017</string>
+    <string name="_2017_11_10t12_56_36_618z">2017–11–10T12:56:36.618Z</string>
+    <string name="s03e07">S03E07</string>
+    <string name="retry">retry</string>
+</resources>
